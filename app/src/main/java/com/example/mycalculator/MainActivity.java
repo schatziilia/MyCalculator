@@ -207,6 +207,7 @@ public class MainActivity extends AppCompatActivity  {
                 coin = mySpinner.getSelectedItem().toString();
 
                 if(!coin.equals("$") && CURRENT_ACTION == '0'){
+                    //valueOne = Double.parseDouble(editText.getText().toString());
                     new MyTask().execute(coin);
                 }
 
@@ -392,8 +393,9 @@ public class MainActivity extends AppCompatActivity  {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            valueOne = valueOne*Double.parseDouble(coin_value);
+            
+            valueOne = Double.parseDouble(editText.getText().toString());
+            valueOne = valueOne * Double.parseDouble(coin_value);
             editText.setText(decimalFormat.format(valueOne));
         }
     }//myTask
